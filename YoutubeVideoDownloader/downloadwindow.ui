@@ -14,47 +14,11 @@
    <string>downloadWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="download">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>30</y>
-      <width>161</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Download</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="downloadProgress">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>411</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="link">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="stop_3">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>280</y>
+      <x>380</x>
+      <y>300</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -66,22 +30,56 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>10</y>
       <width>441</width>
-      <height>101</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="title">
      <string>Download Area</string>
     </property>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>421</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="link"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="download">
+          <property name="text">
+           <string>Download</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="downloadProgress">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <zorder></zorder>
     <zorder></zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>120</y>
+      <x>20</x>
+      <y>170</y>
       <width>441</width>
       <height>111</height>
      </rect>
