@@ -12,3 +12,8 @@ downloadWindow::~downloadWindow()
 {
     delete ui;
 }
+
+void downloadWindow::on_exitButton_clicked()
+{
+    this->close();
+}

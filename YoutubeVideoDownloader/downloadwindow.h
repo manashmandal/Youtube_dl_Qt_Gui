@@ -15,6 +15,9 @@ public:
     explicit downloadWindow(QWidget *parent = 0);
     ~downloadWindow();
 
+private slots:
+    void on_exitButton_clicked();
+
 private:
     Ui::downloadWindow *ui;
 };

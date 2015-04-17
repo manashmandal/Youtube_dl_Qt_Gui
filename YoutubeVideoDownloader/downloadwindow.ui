@@ -6,15 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>396</width>
-    <height>364</height>
+    <width>410</width>
+    <height>374</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>downloadWindow</string>
   </property>
+  <property name="statusTip">
+   <string>Download Window</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="stop_3">
+   <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -22,6 +25,9 @@
       <width>71</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="statusTip">
+     <string>Quit Application</string>
     </property>
     <property name="text">
      <string>Exit</string>
@@ -56,15 +62,24 @@
              <height>30</height>
             </size>
            </property>
+           <property name="statusTip">
+            <string>Paste Youtube Link Here</string>
+           </property>
+           <property name="placeholderText">
+            <string>Paste video link here</string>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="download">
+          <widget class="QPushButton" name="downloadButton">
            <property name="minimumSize">
             <size>
              <width>50</width>
              <height>50</height>
             </size>
+           </property>
+           <property name="statusTip">
+            <string>Download</string>
            </property>
            <property name="text">
             <string>Download</string>
@@ -74,7 +89,23 @@
         </layout>
        </item>
        <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QProgressBar" name="downloadProgress">
+         <property name="statusTip">
+          <string>Progress Bar</string>
+         </property>
          <property name="value">
           <number>0</number>
          </property>
@@ -102,6 +133,19 @@
       </widget>
      </item>
      <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QTextBrowser" name="status">
@@ -110,6 +154,9 @@
            <width>349</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="statusTip">
+          <string>Download Status Viewer</string>
          </property>
          <property name="html">
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -136,12 +183,15 @@ p, li { white-space: pre-wrap; }
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="stop">
+          <widget class="QPushButton" name="pauseButton">
            <property name="minimumSize">
             <size>
              <width>25</width>
              <height>40</height>
             </size>
+           </property>
+           <property name="statusTip">
+            <string>Pause Download</string>
            </property>
            <property name="text">
             <string>Pause</string>
@@ -149,12 +199,15 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="stop_2">
+          <widget class="QPushButton" name="stopButton">
            <property name="minimumSize">
             <size>
              <width>25</width>
              <height>40</height>
             </size>
+           </property>
+           <property name="statusTip">
+            <string>Stop Download</string>
            </property>
            <property name="text">
             <string>Stop</string>
@@ -168,12 +221,12 @@ p, li { white-space: pre-wrap; }
     </layout>
    </widget>
    <zorder>status</zorder>
-   <zorder>download</zorder>
+   <zorder>downloadButton</zorder>
    <zorder>downloadProgress</zorder>
-   <zorder>stop</zorder>
+   <zorder>pauseButton</zorder>
    <zorder>link</zorder>
-   <zorder>stop_2</zorder>
-   <zorder>stop_3</zorder>
+   <zorder>stopButton</zorder>
+   <zorder>exitButton</zorder>
    <zorder>label</zorder>
    <zorder></zorder>
    <zorder></zorder>
@@ -186,7 +239,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>396</width>
+     <width>410</width>
      <height>21</height>
     </rect>
    </property>
@@ -222,14 +275,23 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string>User Manual</string>
    </property>
+   <property name="statusTip">
+    <string>How to use this app</string>
+   </property>
   </action>
   <action name="actionAbout_youtube_dl">
    <property name="text">
     <string>About </string>
    </property>
+   <property name="statusTip">
+    <string>Wanna know about me and the app?</string>
+   </property>
   </action>
   <action name="actionCreate_Download_List">
    <property name="text">
+    <string>Create Download List</string>
+   </property>
+   <property name="statusTip">
     <string>Create Download List</string>
    </property>
   </action>
@@ -237,10 +299,16 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string>Load Download List</string>
    </property>
+   <property name="statusTip">
+    <string>Load Download List</string>
+   </property>
   </action>
   <action name="actionClipboard_Manager">
    <property name="text">
     <string>Clipboard Manager</string>
+   </property>
+   <property name="statusTip">
+    <string>All the youtube video links you copied</string>
    </property>
   </action>
  </widget>
