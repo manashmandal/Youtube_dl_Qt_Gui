@@ -1,24 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>downloadWindow</class>
- <widget class="QMainWindow" name="downloadWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="downloadWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>481</width>
+    <height>406</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>downloadWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="download">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>30</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Download</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="downloadProgress">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>411</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="link">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stop_3">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>280</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>441</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Download Area</string>
+    </property>
+    <zorder></zorder>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>441</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Download Status </string>
+    </property>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>401</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTextBrowser" name="status"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stop">
+          <property name="text">
+           <string>Pause</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stop_2">
+          <property name="text">
+           <string>Stop</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <zorder></zorder>
+    <zorder></zorder>
+   </widget>
+   <zorder>status</zorder>
+   <zorder>download</zorder>
+   <zorder>downloadProgress</zorder>
+   <zorder>stop</zorder>
+   <zorder>link</zorder>
+   <zorder>stop_2</zorder>
+   <zorder>stop_3</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>groupBox_2</zorder>
+   <zorder>groupBox</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>481</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDownload_List">
+    <property name="title">
+     <string>Download List</string>
+    </property>
+    <addaction name="actionCreate_Download_List"/>
+    <addaction name="actionLoad_Download_List"/>
+    <addaction name="separator"/>
+    <addaction name="actionClipboard_Manager"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionProblems_and_Solutions"/>
+    <addaction name="actionAbout_youtube_dl"/>
+   </widget>
+   <addaction name="menuDownload_List"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionProblems_and_Solutions">
+   <property name="text">
+    <string>Problems and Solutions</string>
+   </property>
+  </action>
+  <action name="actionAbout_youtube_dl">
+   <property name="text">
+    <string>About </string>
+   </property>
+  </action>
+  <action name="actionCreate_Download_List">
+   <property name="text">
+    <string>Create Download List</string>
+   </property>
+  </action>
+  <action name="actionLoad_Download_List">
+   <property name="text">
+    <string>Load Download List</string>
+   </property>
+  </action>
+  <action name="actionClipboard_Manager">
+   <property name="text">
+    <string>Clipboard Manager</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>
