@@ -33,7 +33,7 @@
      <string>Exit</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -115,11 +115,11 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>160</y>
       <width>361</width>
       <height>101</height>
      </rect>
@@ -223,19 +223,37 @@ p, li { white-space: pre-wrap; }
      </item>
     </layout>
    </widget>
-   <zorder>status</zorder>
-   <zorder>downloadButton</zorder>
-   <zorder>downloadProgress</zorder>
-   <zorder>pauseButton</zorder>
-   <zorder>link</zorder>
-   <zorder>stopButton</zorder>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>167</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Time Left (hh:mm:ss) =</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="timeLabel">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>exitButton</zorder>
-   <zorder>label</zorder>
-   <zorder></zorder>
-   <zorder></zorder>
-   <zorder>label_2</zorder>
-   <zorder>downloadProgress</zorder>
-   <zorder></zorder>
+   <zorder>label_3</zorder>
+   <zorder>timeLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

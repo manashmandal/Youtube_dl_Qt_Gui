@@ -25,6 +25,7 @@ public:
     const QString address = "C:\\Users\\Manash\\Documents\\QCommand";
     QString updatedStatus;
     bool isPaused;
+    QString ETA, timeLeft;
 
     // Showing Progress on the taskbar
     void createTaskbar();

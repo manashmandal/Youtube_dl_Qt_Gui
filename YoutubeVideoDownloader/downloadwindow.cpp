@@ -87,6 +87,14 @@ void downloadWindow::analyzeOutput(QString prog)
 
         qDebug() << "String to int conversion: " << progressInt << "\n";
 
+        timeLeft = thatStatus->mid(thatStatus->indexOf('A') + 1, thatStatus->size() - 1).remove(QChar(' '));
+
+        //qDebug() << "Time: " << timeLeft;
+        if (thatStatus->contains("100%") && thatStatus->contains("in")){
+            qDebug() << thatStatus->indexOf("in") << "\n";
+            qDebug() << thatStatus->at(thatStatus->indexOf("in"));
+        }
+
         ui->downloadProgress->setValue(progressInt);
     }
 }
@@ -132,7 +140,12 @@ void downloadWindow::enableStatusSide()
 
 void downloadWindow::downloadFinished(int val)
 {
+    if (val != 100) ui->timeLabel->setText(timeLeft);
     if (val == 100) {
+
+        ETA = "done";
+
+        ui->timeLabel->setText(ETA);
         enableDownloadSide();
        int reply = QMessageBox::information(this, "Download Complete", "Download completed in ___ (time)", QMessageBox::Ok);
        if (reply == QMessageBox::Ok){
@@ -140,7 +153,7 @@ void downloadWindow::downloadFinished(int val)
            ui->downloadProgress->setValue(0);
            taskbarProgress->setValue(0);
        }
-
+        ui->timeLabel->clear();
     }
 }
 void downloadWindow::on_stopButton_clicked()
