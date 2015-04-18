@@ -22,9 +22,9 @@ public:
     QProcess *process;
     QString downloadLink;
     QString previousDownloadLink;
-    QString address = "C:\\Users\\Manash\\Documents\\QCommand";
+    const QString address = "C:\\Users\\Manash\\Documents\\QCommand";
     QString updatedStatus;
-    bool isPaused = false;
+    bool isPaused;
 
     // Showing Progress on the taskbar
     void createTaskbar();
@@ -41,7 +41,7 @@ public:
 public slots:
     void readyForOutput();
     void analyzeOutput(QString prog);
-    void downloadFinished();
+    void downloadFinished(int);
 
 private:
     void enableDownloadSide();

@@ -9,6 +9,7 @@ downloadWindow::downloadWindow(QWidget *parent) :
     process = new QProcess(this);
     ui->pauseButton->setEnabled(false);
     ui->stopButton->setEnabled(false);
+    isPaused = false;
 
     //Use this when are you using debug
     process->setWorkingDirectory(address);
@@ -18,6 +19,8 @@ downloadWindow::downloadWindow(QWidget *parent) :
     connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(readyForOutput()));
     connect(this, SIGNAL(download_progress()), ui->downloadProgress, SLOT(setValue(int)));
     createTaskbar();
+    connect(ui->downloadProgress, SIGNAL(valueChanged(int)), this, SLOT(downloadFinished(int)));
+
 }
 
 downloadWindow::~downloadWindow()
@@ -127,12 +130,19 @@ void downloadWindow::enableStatusSide()
     ui->stopButton->setEnabled(true);
 }
 
-void downloadWindow::downloadFinished()
+void downloadWindow::downloadFinished(int val)
 {
-    enableDownloadSide();
+    if (val == 100) {
+        enableDownloadSide();
+       int reply = QMessageBox::information(this, "Download Complete", "Download completed in ___ (time)", QMessageBox::Ok);
+       if (reply == QMessageBox::Ok){
+           ui->link->clear();
+           ui->downloadProgress->setValue(0);
+           taskbarProgress->setValue(0);
+       }
 
+    }
 }
-
 void downloadWindow::on_stopButton_clicked()
 {
     ui->downloadProgress->setValue(0);
