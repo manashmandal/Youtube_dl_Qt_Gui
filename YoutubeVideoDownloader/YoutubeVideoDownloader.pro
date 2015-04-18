@@ -18,3 +18,5 @@ SOURCES += main.cpp\
 HEADERS  += downloadwindow.h
 
 FORMS    += downloadwindow.ui
+
+RC_FILE = myapp.rc
