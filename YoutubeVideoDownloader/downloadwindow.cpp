@@ -40,10 +40,21 @@ void downloadWindow::on_downloadButton_clicked()
 {
     previousDownloadLink = downloadLink; //Kept a copy for resuming
     //Disabling the buttons and text editors while downloading
-    ui->link->setEnabled(false);
-    ui->downloadButton->setEnabled(false);
-    ui->pauseButton->setEnabled(true);
-    ui->stopButton->setEnabled(true);
+
+    if (ui->link->text() == NULL || !ui->link->text().contains("youtube")){
+
+        QMessageBox::warning(this, "URL Problem", "Please put an appropriate youtube video url!");
+       // QMessageBox::information(this, "Confused!", "Please put an appropriate download link");
+    }
+    else {
+        ui->link->setEnabled(false);
+        ui->downloadButton->setEnabled(false);
+        ui->pauseButton->setEnabled(true);
+        ui->stopButton->setEnabled(true);
+
+        process->start("cmd.exe", QStringList() << "/cyoutube-dl " + downloadLink, QProcess::ReadWrite);
+        //qDebug() << QDir::currentPath();
+    }
 }
 
 

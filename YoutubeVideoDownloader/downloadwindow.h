@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QMainWindow>
 #include <QShowEvent>
+#include <QMessageBox>
+#include <QDir>
 
 namespace Ui {
 class downloadWindow;
