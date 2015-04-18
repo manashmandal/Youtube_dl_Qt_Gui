@@ -24,6 +24,7 @@ public:
     QString previousDownloadLink;
     QString address = "C:\\Users\\Manash\\Documents\\QCommand";
     QString updatedStatus;
+    bool isPaused = false;
 
     // Showing Progress on the taskbar
     void createTaskbar();
@@ -40,6 +41,12 @@ public:
 public slots:
     void readyForOutput();
     void analyzeOutput(QString prog);
+    void downloadFinished();
+
+private:
+    void enableDownloadSide();
+    void enableStatusSide();
+    void startDownload(QString addr);
 
 signals:
     int download_progress();
@@ -50,6 +57,10 @@ private slots:
     void on_link_textEdited(const QString &arg1);
 
     void on_downloadButton_clicked();
+
+    void on_stopButton_clicked();
+
+    void on_pauseButton_clicked();
 
 private:
     Ui::downloadWindow *ui;

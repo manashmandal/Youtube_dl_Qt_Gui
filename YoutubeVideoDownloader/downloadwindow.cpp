@@ -47,14 +47,16 @@ void downloadWindow::on_downloadButton_clicked()
        // QMessageBox::information(this, "Confused!", "Please put an appropriate download link");
     }
     else {
-        ui->link->setEnabled(false);
-        ui->downloadButton->setEnabled(false);
-        ui->pauseButton->setEnabled(true);
-        ui->stopButton->setEnabled(true);
-
-        process->start("cmd.exe", QStringList() << "/cyoutube-dl " + downloadLink, QProcess::ReadWrite);
+        enableStatusSide();
+        startDownload(downloadLink);
         //qDebug() << QDir::currentPath();
     }
+}
+
+//Download Function
+void downloadWindow::startDownload(QString url)
+{
+    process->start("cmd.exe", QStringList() << "/cyoutube-dl " + url, QProcess::ReadWrite);
 }
 
 
@@ -104,4 +106,56 @@ void downloadWindow::showEvent(QShowEvent *e)
     taskbarButton->setWindow(windowHandle());
 #endif
     e->accept();
+}
+
+
+void downloadWindow::enableDownloadSide()
+{
+    ui->link->setEnabled(true);
+    ui->downloadButton->setEnabled(true);
+    ui->status->clear();
+    ui->pauseButton->setEnabled(false);
+    ui->stopButton->setEnabled(false);
+}
+
+void downloadWindow::enableStatusSide()
+{
+    ui->link->setEnabled(false);
+    ui->downloadButton->setEnabled(false);
+    ui->status->clear();
+    ui->pauseButton->setEnabled(true);
+    ui->stopButton->setEnabled(true);
+}
+
+void downloadWindow::downloadFinished()
+{
+    enableDownloadSide();
+
+}
+
+void downloadWindow::on_stopButton_clicked()
+{
+    ui->downloadProgress->setValue(0);
+    taskbarProgress->setValue(0);
+    ui->link->clear();
+    process->kill();
+    enableDownloadSide();
+}
+
+void downloadWindow::on_pauseButton_clicked()
+{
+    isPaused = !isPaused;
+    if (isPaused)
+    {
+        ui->pauseButton->setText("Resume");
+        process->kill();
+        taskbarProgress->pause();
+    }
+
+    else {
+        ui->pauseButton->setText("Pause");
+        startDownload(previousDownloadLink);
+        taskbarProgress->resume();
+    }
+
 }
