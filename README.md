@@ -17,3 +17,4 @@ It is a simple app (till now) for downloading youtube videos using `Youtube-dl` 
 ## TODO
 * Making a ListView / ListWidget Model
 * Add Multiple Format Support
+* Custom process
