@@ -1,5 +1,5 @@
 # Youtube Video Downloader
-It is a simple app (till now) for downloading youtube videos using `Youtube-dl` api .
+It is a simple app (till now) for downloading youtube videos using `Youtube-dl` api.
 
 ## Advantages: [Some will be available in future]
 * Internet Download Manager fails to resume some videos but this one never does, it can resume download of a video if it is interrupted somehow in the first place [Y_DL]
