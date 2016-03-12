@@ -20,3 +20,4 @@ It is a simple app (till now) for downloading youtube videos using `Youtube-dl` 
 * Custom process
 * Multiple process support
 * Download speed limiter
+* Update python version
