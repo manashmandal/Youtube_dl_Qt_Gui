@@ -22,3 +22,4 @@ It is a simple app (till now) for downloading youtube videos using `Youtube-dl` 
 * Download speed limiter
 * Update python version
 * Update listwidget with custom download listitem
+* ... 
