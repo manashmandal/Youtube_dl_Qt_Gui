@@ -1,4 +1,5 @@
 //update
+//fixdir
 
 #include <QCoreApplication>
 #include <QProcess>
